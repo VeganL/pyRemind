@@ -1,13 +1,13 @@
-from functions import *
+from flask import Flask, request, render_template, url_for
 app = Flask(__name__)
 
 @app.route('/')
-def loginPage():
-    return app.send_static_file('./login/login.html')
+def loginPage(invalid = None):
+    return render_template('login/login.html')
 
-@app.route('/loginConfirm', methods=['POST'])
+@app.route('/loginConfirm')
 def login():
-    pass
+    return 'WIP'
 
 @app.route('/register')
 def registerPage():
