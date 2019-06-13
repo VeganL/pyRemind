@@ -8,15 +8,18 @@
         <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
     </head>
     <body class="text-center">
-        <form class="form-signin" action="/loginConfirm" method="POST">
+        <form class="form-signin" action="/login" method="POST">
             <img class="mb-4" src="{{url_for('static', filename='logo.png')}}" alt="pyRemind Logo" width="128" height="128">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <label for="inputUser" class="sr-only">Username</label>
-            <input type="text" id="inputUser" class="form-control" placeholder="Username" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" class="form-control" placeholder="Password" required>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             
+            {% if error %}
+            <p class="mt-2 mb-2 text-center" style="color: red">{{error}}</p>
+            {% endif %}
             <p class="mt-5 mb-3 text-center">Don't have an account? <a href="/register">Register</a></p>
             <p class="mt-5 mb-3 text-muted text-center">pyRemind | &copy; 2019</p>
         </form>
